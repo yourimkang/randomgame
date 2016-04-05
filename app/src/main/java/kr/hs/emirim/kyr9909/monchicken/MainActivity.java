@@ -1,4 +1,5 @@
 package kr.hs.emirim.kyr9909.monchicken;
+        import android.content.Intent;
         import android.support.v7.app.ActionBarActivity;
         import android.os.Bundle;
         import android.view.View;
@@ -36,6 +37,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      */
     @Override
     public void onClick(View v) {
-        Toast.makeText(this,"배고파워!", Toast.LENGTH_LONG).show();//현재 문맥을 넘겨줌 , duration :기간
+        Toast.makeText(this,"배고파요!", Toast.LENGTH_LONG).show();//현재 문맥을 넘겨줌 , duration :기간
+        Intent intent = new Intent(this, ResultActivity.class);
+        startActivity(intent);
     }
 }
