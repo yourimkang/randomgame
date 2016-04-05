@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onResume() { //매번 처리해야 되는 것, 화면이 보여질 때마다
         super.onResume();
-        mName.setText("");//text공간을 비우게 해줌
+        mName.setText(null);//text공간을 비우게 해줌
     }
 
     /**
@@ -36,9 +36,29 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
      * @param v The view that was clicked.
      */
     @Override
-    public void onClick(View v) {
-        Toast.makeText(this,"배고파요!", Toast.LENGTH_LONG).show();//현재 문맥을 넘겨줌 , duration :기간
-        Intent intent = new Intent(this, ResultActivity.class);
-        startActivity(intent);
+    public void onClick(View v) { //누른 순간의 값을 가져와야하는 메서드
+
+        String name = mName.getText().toString(); //문자출력
+//        if (name == null) //한번에 치기 -> ctrl+/
+//        {
+//            Toast.makeText(this, "이름을 입력해 주세요 ! ", Toast.LENGTH_LONG).show();//현재 문맥을 넘겨줌 , duration :기간
+//
+//        }else {
+//
+//            Toast.makeText(this, name + "씨, 배고파요!", Toast.LENGTH_LONG).show();//현재 문맥을 넘겨줌 , duration :기간
+//            Intent intent = new Intent(this, ResultActivity.class);
+//            startActivity(intent);
+//        }
+//
+        try{
+            Toast.makeText(this, name + "씨, 배고파요!", Toast.LENGTH_LONG).show();//현재 문맥을 넘겨줌 , duration :기간
+            Intent intent = new Intent(this, ResultActivity.class);
+            startActivity(intent);
+        }catch (NullPointerException e){
+            Toast.makeText(this, "이름을 입력해 주세요! ", Toast.LENGTH_LONG).show();//예외인 경우
+        }catch (Exception e){
+            Toast.makeText(this, "뭔지 모르지만 잘 안되네요! ", Toast.LENGTH_LONG).show();//현재 문맥을 넘겨줌 , duration :기간
+
+        }
     }
 }
