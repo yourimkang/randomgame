@@ -53,6 +53,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         try{
             Toast.makeText(this, name + "씨, 배고파요!", Toast.LENGTH_LONG).show();//현재 문맥을 넘겨줌 , duration :기간
             Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra("name",name);
+            intent.putExtra("age",10);
             startActivity(intent);
         }catch (NullPointerException e){
             Toast.makeText(this, "이름을 입력해 주세요! ", Toast.LENGTH_LONG).show();//예외인 경우
