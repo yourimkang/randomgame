@@ -28,6 +28,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     protected void onResume() { //매번 처리해야 되는 것, 화면이 보여질 때마다
         super.onResume();
         mName.setText(null);//text공간을 비우게 해줌
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     /**
