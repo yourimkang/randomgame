@@ -21,6 +21,7 @@ public class SplashActivity extends ActionBarActivity {
             public void run() {
                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0,R.anim.zoom_exit);
                 finish();
             }
         },3000);
